@@ -7,11 +7,9 @@
     }]
   ],
   "plugins": [
-    //"transform-es3-property-literals",
     "transform-async-to-generator",
     "transform-runtime",
     "transform-regenerator",
-    "syntax-async-functions",
-    //"transform-es2015-classes"
+    "syntax-async-functions"
   ]
 }
