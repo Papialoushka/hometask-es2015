@@ -53,12 +53,14 @@ footer a,
 footer p,
 .news-resource,
 .article {
+  display: -ms-flexbox;
   display: flex;
 }
 
 main,
 .news-resource,
 .article {
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -66,11 +68,13 @@ nav,
 footer,
 .resources,
 .resource-output {
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .resources,
 .resource-output {
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   align-self: center;
   width: 80%;
@@ -85,6 +89,7 @@ footer {
 nav ul,
 footer a,
 footer p {
+  -ms-flex-align: center;
   align-items: center;
 }
 
