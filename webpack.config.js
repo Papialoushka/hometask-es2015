@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: [
-    //'babel-polyfill',
+    'babel-polyfill',
     './src/news-module.js'
   ],
   output: {

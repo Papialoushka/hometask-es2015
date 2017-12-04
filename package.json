@@ -36,6 +36,6 @@
     "isomorphic-fetch": "^2.2.1"
   },
   "browserslist": [
-    "ie >= 9"
+    "ie >= 10"
   ]
 }
