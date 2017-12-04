@@ -76,7 +76,7 @@ footer,
 .resource-output {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  align-self: center;
+  margin: 0 auto;
   width: 80%;
 }
 
