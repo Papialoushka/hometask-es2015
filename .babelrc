@@ -1,15 +1,21 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["ie >= 10"]
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "ie >= 10"
+          ]
+        }
       }
-    }]
+    ]
   ],
   "plugins": [
     "transform-async-to-generator",
     "transform-runtime",
     "transform-regenerator",
-    "syntax-async-functions"
+    "syntax-async-functions",
+    "./plugins/console-log-plugin.js"
   ]
 }

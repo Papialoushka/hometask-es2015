@@ -4625,7 +4625,6 @@ var NewsResource = function () {
       var resource = document.createElement('li');
 
       resource.className = 'news-resource';
-      //resource.id = this.id;
       resource.insertAdjacentHTML('afterBegin', '<h2><a href=' + this.url + ' title="Click to read" id=' + this.id + '><img src=' + this.logo + ' alt=' + this.title + '>' + this.title + '</a></h2><p>' + this.description + '</p>');
 
       return document.getElementById('newsResources').appendChild(resource);
@@ -10135,37 +10134,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.prev = 0;
-              _context.next = 3;
+              _context.next = 2;
               return fetch(apiUrl);
 
-            case 3:
+            case 2:
               response = _context.sent;
-              _context.next = 6;
+              _context.next = 5;
               return getResponse(response);
 
-            case 6:
+            case 5:
               json = _context.sent;
-              _context.next = 9;
+              _context.next = 8;
               return getResources(json);
 
-            case 9:
+            case 8:
               parseJson = _context.sent;
-              _context.next = 15;
-              break;
 
-            case 12:
-              _context.prev = 12;
-              _context.t0 = _context['catch'](0);
-
-              console.log(_context.t0);
-
-            case 15:
+            case 9:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, _this, [[0, 12]]);
+      }, _callee, _this);
     }));
 
     return function request() {
@@ -10174,17 +10164,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   }();
 
   request();
-
-  // fetch(apiUrl)
-  // .then(getResponse)
-  // .then(resources => {
-  //   resources.sources.forEach(source => {
-  //     const newResourceItem = new NewsResource(source);
-  //
-  //     newResourceItem.createLink();
-  //   });
-  //   return resources.sources.id;
-  // });
 
   var resourceClick = function resourceClick(e) {
     e.preventDefault();
@@ -10212,7 +10191,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
   resourcesList.addEventListener('click', resourceClick, false);
   button.addEventListener('click', buttonClick, false);
-})(); //import 'babel-polyfill';
+
+  // To check if plugin works.
+})();
 
 /***/ }),
 /* 384 */
@@ -13730,7 +13711,7 @@ var ResourcePage = function (_NewsResource) {
           list = document.getElementById('resourceOutput');
 
       article.className = 'article';
-      article.insertAdjacentHTML('afterBegin', '<h3><a href=' + this.url + ' title="Go to an external resource to read"><img src=' + this.logo + '>' + this.title + '</a></h3><p>' + this.description + '</p><p>' + this.date + '</p>');
+      article.insertAdjacentHTML('afterBegin', '<h3><a href=' + this.url + ' title="Go to an external resource to read"><img src=' + this.logo + ' alt=' + this.title + '>' + this.title + '</a></h3><p>' + this.description + '</p><p>' + this.date + '</p>');
 
       return list.appendChild(article);
     }
@@ -14370,7 +14351,7 @@ exports = module.exports = __webpack_require__(447)(undefined);
 
 
 // module
-exports.push([module.i, "* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n}\r\n\r\nbody {\r\n  line-height: 1.5;\r\n  background: #ffffff;\r\n  height: 100vh;\r\n}\r\n\r\nsection {\r\n  height: 100%;\r\n}\r\n\r\n.skip-link {\r\n  position: absolute;\r\n  left: -10000px;\r\n  top: auto;\r\n  width: 1px;\r\n  height: 1px;\r\n  margin-right: 20px;\r\n  overflow: hidden;\r\n}\r\n\r\n.skip-link:focus {\r\n  position: static;\r\n  width: auto;\r\n  height: auto;\r\n}\r\n\r\np {\r\n  color: #000000;\r\n}\r\n\r\nh1 + p {\r\n  text-align: center;\r\n  margin: 10px 0 20px;\r\n  font-weight: 900;\r\n}\r\n\r\nmain p {\r\n  margin-bottom: 10px;\r\n}\r\n\r\nmain,\r\nnav,\r\nul,\r\nfooter,\r\nfooter a,\r\nfooter p,\r\n.news-resource,\r\n.article {\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\nmain,\r\n.news-resource,\r\n.article {\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\nnav,\r\nfooter,\r\n.resources,\r\n.resource-output {\r\n  -ms-flex-pack: justify;\r\n  justify-content: space-between;\r\n}\r\n\r\n.resources,\r\n.resource-output {\r\n  -ms-flex-wrap: wrap;\r\n  flex-wrap: wrap;\r\n  margin: 0 auto;\r\n  width: 80%;\r\n}\r\n\r\nheader,\r\nfooter {\r\n  height: 60px;\r\n  padding: 0 20px;\r\n}\r\n\r\nnav ul,\r\nfooter a,\r\nfooter p {\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n}\r\n\r\nheader,\r\nfooter,\r\nh1,\r\na,\r\nbutton {\r\n  color: #003366;\r\n}\r\n\r\nheader,\r\nfooter,\r\nbutton {\r\n  background: #6699CC;\r\n}\r\n\r\nnav {\r\n  height: inherit;\r\n}\r\n\r\nnav ul {\r\n  list-style: none;\r\n}\r\n\r\nnav ul a {\r\n  padding: 0.5em;\r\n  border: 1px solid currentColor;\r\n}\r\n\r\nnav ul a:hover,\r\nnav ul a:focus {\r\n  text-decoration: underline;\r\n}\r\n\r\nmain {\r\n  position: relative;\r\n  padding: 20px 50px;\r\n}\r\n\r\nh1 {\r\n  text-align: center;\r\n  font-size: 1.5em;\r\n}\r\n\r\n.news-resource,\r\n.article {\r\n  width: 47%;\r\n  padding: 1em;\r\n  background: #efefef;\r\n  border-radius: 5px;\r\n}\r\n\r\n.news-resource,\r\n.news-resource h2,\r\n.article {\r\n  margin-bottom: 20px;\r\n}\r\n\r\na:hover,\r\na:focus {\r\n  text-decoration: none;\r\n  color: #000044;\r\n}\r\n\r\n.news-resource h2 img,\r\n.article h3 img {\r\n  vertical-align: middle;\r\n  margin-right: 50px;\r\n}\r\n\r\n.news-resource h2 img {\r\n  width: 20%;\r\n}\r\n\r\n.article h3 img {\r\n  width: 50%;\r\n  float: left;\r\n  margin-bottom: 10px;\r\n}\r\n\r\nbutton {\r\n  position: absolute;\r\n  top: 10px;\r\n  right: 10px;\r\n  padding: 1em;\r\n  font-size: 1em;\r\n  font-weight: 900;\r\n  border-radius: 30px;\r\n}\r\n\r\nbutton:hover,\r\nbutton:focus {\r\n  background: #003366;\r\n  color: #6699CC;\r\n}\r\n\r\n.hidden {\r\n  display: none;\r\n}\r\n\r\n/* Media Queries */\r\n@media screen and (max-width: 640px) {\r\n  main {\r\n    padding: 10px;\r\n  }\r\n\r\n  .resources,\r\n  .resource-output,\r\n  .news-resource,\r\n  .article,\r\n  .news-resource h2 img,\r\n  .article h3 img {\r\n    width: 100%;\r\n  }\r\n\r\n  .news-resource,\r\n  .article {\r\n    padding: 0.5em;\r\n  }\r\n\r\n  .news-resource,\r\n  .news-resource h2,\r\n  .article {\r\n    margin-bottom: 10px;\r\n  }\r\n\r\n  .news-resource h2 img,\r\n  .article h3 img {\r\n    margin-right: 0;\r\n  }\r\n\r\n  button {\r\n    position: relative;\r\n    top: auto;\r\n    right: auto;\r\n    display: block;\r\n    width: 60%;\r\n    margin: 10px auto 25px;\r\n  }\r\n}\r\n\r\n@media screen and (min-width: 641px) and (max-width: 1024px) {\r\n  .resources,\r\n  .resource-output {\r\n    width: 100%;\r\n  }\r\n\r\n  .news-resource,\r\n  .article {\r\n    width: 47%;\r\n  }\r\n\r\n  .news-resource h2 img,\r\n  .article h3 img {\r\n    float: left;\r\n  }\r\n\r\n  .article h3 img {\r\n    width: 100%;\r\n    margin-right: 0;\r\n  }\r\n}", ""]);
+exports.push([module.i, "* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n}\r\n\r\nbody {\r\n  line-height: 1.5;\r\n  background: #ffffff;\r\n  height: 100vh;\r\n}\r\n\r\nsection {\r\n  height: 100%;\r\n}\r\n\r\n.skip-link {\r\n  position: absolute;\r\n  left: -10000px;\r\n  top: auto;\r\n  width: 1px;\r\n  height: 1px;\r\n  margin-right: 20px;\r\n  overflow: hidden;\r\n}\r\n\r\n.skip-link:focus {\r\n  position: static;\r\n  width: auto;\r\n  height: auto;\r\n}\r\n\r\np {\r\n  color: #000000;\r\n}\r\n\r\nh1 + p {\r\n  text-align: center;\r\n  margin: 10px 0 20px;\r\n  font-weight: 900;\r\n}\r\n\r\nmain p {\r\n  margin-bottom: 10px;\r\n}\r\n\r\nmain,\r\nnav,\r\nul,\r\nfooter,\r\nfooter a,\r\nfooter p,\r\n.news-resource,\r\n.article {\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\nmain,\r\n.news-resource,\r\n.article {\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\nnav,\r\nfooter,\r\n.resources,\r\n.resource-output {\r\n  -ms-flex-pack: justify;\r\n  justify-content: space-between;\r\n}\r\n\r\n.resources,\r\n.resource-output {\r\n  -ms-flex-wrap: wrap;\r\n  flex-wrap: wrap;\r\n  margin: 0 auto;\r\n  width: 80%;\r\n}\r\n\r\nheader,\r\nfooter {\r\n  height: 60px;\r\n  padding: 0 20px;\r\n}\r\n\r\nnav ul,\r\nfooter a,\r\nfooter p {\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n}\r\n\r\nheader,\r\nfooter,\r\nh1,\r\na,\r\nbutton {\r\n  color: #003366;\r\n}\r\n\r\nheader,\r\nfooter,\r\nbutton {\r\n  background: #6699CC;\r\n}\r\n\r\nnav {\r\n  height: inherit;\r\n}\r\n\r\nnav ul {\r\n  list-style: none;\r\n}\r\n\r\nnav ul a {\r\n  padding: 0.5em;\r\n  border: 1px solid currentColor;\r\n}\r\n\r\nnav ul a:hover,\r\nnav ul a:focus {\r\n  text-decoration: underline;\r\n}\r\n\r\nmain {\r\n  position: relative;\r\n  padding: 20px 50px;\r\n}\r\n\r\nh1 {\r\n  text-align: center;\r\n  font-size: 1.5em;\r\n}\r\n\r\n.news-resource,\r\n.article {\r\n  width: 47%;\r\n  padding: 1em;\r\n  background: #efefef;\r\n  border-radius: 5px;\r\n}\r\n\r\n.news-resource,\r\n.news-resource h2,\r\n.article {\r\n  margin-bottom: 20px;\r\n}\r\n\r\na:hover,\r\na:focus {\r\n  text-decoration: none;\r\n  color: #000044;\r\n}\r\n\r\n.news-resource h2 img,\r\n.article h3 img {\r\n  vertical-align: middle;\r\n  margin-right: 50px;\r\n}\r\n\r\n.news-resource h2 img {\r\n  width: 20%;\r\n}\r\n\r\n.article h3 img {\r\n  width: 50%;\r\n  float: left;\r\n  margin-bottom: 10px;\r\n}\r\n\r\nbutton {\r\n  position: absolute;\r\n  top: 30px;\r\n  right: 10px;\r\n  padding: 1em;\r\n  font-size: 1em;\r\n  font-weight: 900;\r\n  border-radius: 30px;\r\n}\r\n\r\nbutton:hover,\r\nbutton:focus {\r\n  background: #003366;\r\n  color: #6699CC;\r\n}\r\n\r\n.hidden {\r\n  display: none;\r\n}\r\n\r\n/* Media Queries */\r\n@media screen and (max-width: 640px) {\r\n  main {\r\n    padding: 10px;\r\n  }\r\n\r\n  .resources,\r\n  .resource-output,\r\n  .news-resource,\r\n  .article,\r\n  .news-resource h2 img,\r\n  .article h3 img {\r\n    width: 100%;\r\n  }\r\n\r\n  .news-resource,\r\n  .article {\r\n    padding: 0.5em;\r\n  }\r\n\r\n  .news-resource,\r\n  .news-resource h2,\r\n  .article {\r\n    margin-bottom: 10px;\r\n  }\r\n\r\n  .news-resource h2 img,\r\n  .article h3 img {\r\n    margin-right: 0;\r\n  }\r\n\r\n  button {\r\n    position: relative;\r\n    top: auto;\r\n    right: auto;\r\n    display: block;\r\n    width: 60%;\r\n    margin: 10px auto 25px;\r\n  }\r\n}\r\n\r\n@media screen and (min-width: 641px) and (max-width: 1024px) {\r\n  .resources,\r\n  .resource-output {\r\n    width: 100%;\r\n  }\r\n\r\n  .news-resource,\r\n  .article {\r\n    width: 47%;\r\n  }\r\n\r\n  .news-resource h2 img,\r\n  .article h3 img {\r\n    float: left;\r\n  }\r\n\r\n  .article h3 img {\r\n    width: 100%;\r\n    margin-right: 0;\r\n  }\r\n}", ""]);
 
 // exports
 
