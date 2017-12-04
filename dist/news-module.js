@@ -4625,8 +4625,8 @@ var NewsResource = function () {
       var resource = document.createElement('li');
 
       resource.className = 'news-resource';
-      resource.id = this.id;
-      resource.insertAdjacentHTML('afterBegin', '<h2><a href=' + this.url + ' title="Click to read"><img src=' + this.logo + ' alt=' + this.title + '>' + this.title + '</a></h2><p>' + this.description + '</p>');
+      //resource.id = this.id;
+      resource.insertAdjacentHTML('afterBegin', '<h2><a href=' + this.url + ' title="Click to read" id=' + this.id + '><img src=' + this.logo + ' alt=' + this.title + '>' + this.title + '</a></h2><p>' + this.description + '</p>');
 
       return document.getElementById('newsResources').appendChild(resource);
     }
@@ -10189,7 +10189,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   var resourceClick = function resourceClick(e) {
     e.preventDefault();
 
-    var id = e.target.closest('li').id,
+    var id = e.target.id,
         resourceUrl = 'https://newsapi.org/v2/top-headlines?sources=' + id + '&apiKey=' + apiKey;
 
     fetch(resourceUrl).then(getResponse).then(function (source) {

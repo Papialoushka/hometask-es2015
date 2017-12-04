@@ -55,7 +55,7 @@ import './screen.css';
   const resourceClick = (e) => {
     e.preventDefault();
 
-    const id = e.target.closest('li').id,
+    const id = e.target.id,
         resourceUrl = `https://newsapi.org/v2/top-headlines?sources=${id}&apiKey=${apiKey}`;
 
     fetch(resourceUrl)
