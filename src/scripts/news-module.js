@@ -4,10 +4,13 @@ import './../styles/screen.css';
 import renderArticles from './render-articles';
 import renderResources from './render-resources';
 import data from '../../data/data.json';
+import Button from './button';
 
 (function () {
- const resourcesList = document.getElementById('newsResources');
+  const resourcesList = document.getElementById('newsResources'),
+  button = new Button();
 
+  button.create();
   renderResources();
 
   const resourceClick = (e) => {

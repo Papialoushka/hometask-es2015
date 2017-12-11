@@ -10,7 +10,7 @@ export default function renderResources() {
           resources.sources.forEach(source => {
             const newResourceItem = new NewsResource(source);
 
-            newResourceItem.createLink();
+            newResourceItem.createList('news-resource', 'newsResources');
           });
           return resources.sources.id;
         };

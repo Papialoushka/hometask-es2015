@@ -50,6 +50,14 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json-loader!./loaders/remove-number-attribute-loader'
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
       }
     ]
   }
