@@ -1,14 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   entry: [
     'babel-polyfill',
-    './src/news-module.js'
+    './src/scripts/news-module.js'
   ],
+  watch: NODE_ENV === 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('styles.css')
+    new webpack.DefinePlugin({
+      NODE_ENV: JSON.stringify(NODE_ENV)
+    })
   ],
   output: {
     filename: 'news-module.js',
@@ -26,10 +30,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          }
+        ]
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -41,11 +49,7 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        use: [
-          {
-            loader: path.resolve(__dirname, './loaders/remove-number-attribute-loader.js')
-          }
-        ]
+        loader: 'json-loader!./loaders/remove-number-attribute-loader'
       }
     ]
   }

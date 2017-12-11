@@ -15,7 +15,7 @@
     "transform-async-to-generator",
     "transform-runtime",
     "transform-regenerator",
-    "syntax-async-functions",
-    "./plugins/console-log-plugin.js"
+    "syntax-async-functions"
+    //"./plugins/console-log-plugin.js"
   ]
 }

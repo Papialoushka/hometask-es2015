@@ -1,21 +1,16 @@
-export default function (source) {
+module.exports = function (source) {
   const parsedSource = JSON.parse(source);
 
-  const findKeys = (source) => {
-    const values = Object.values(source);
+  const findKeys = (parsedSource) => {
 
-    for (let key in source) {
+    for (let key in parsedSource) {
       if (!(isNaN(Number(key))) && typeof Number(key) === 'number') {
-        delete source[key];
+        delete parsedSource[key];
       }
     }
 
-    for (let i = 0; i <= values.length; i++) {
-      if (typeof values[i] === 'object') {
-        findKeys(values[i]);
-      }
-    }
+    return parsedSource;
   };
 
-    return `export default ${ JSON.stringify(source) }`;
+  return JSON.stringify(findKeys(parsedSource));
 };
