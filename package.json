@@ -44,6 +44,6 @@
     "postcss-cssnext": "^3.0.2"
   },
   "browserslist": [
-    "ie >= 9"
+    "ie >= 10"
   ]
 }

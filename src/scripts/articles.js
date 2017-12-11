@@ -14,7 +14,7 @@ export default class ResourcePage extends NewsResource {
         list = document.getElementById('resourceOutput');
 
     article.className = 'article';
-    article.insertAdjacentHTML('afterBegin', `<h3><a href=${this.url} title="Go to an external resource to read"><img src=${this.logo}>${this.title}</a></h3><p>${this.description}</p><p>${this.date}</p>`);
+    article.insertAdjacentHTML('afterBegin', `<h3><a href=${this.url} title="Go to an external resource to read"><img src=${this.logo} alt=${this.title}>${this.title}</a></h3><p>${this.description}</p><p>${this.date}</p>`);
 
     return list.appendChild(article);
   }
