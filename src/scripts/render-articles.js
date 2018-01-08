@@ -3,35 +3,35 @@ import PlainTextResourcePage from './plain-text';
 import Button from './button';
 import './../styles/screen.css';
 import './../styles/articles.css'
+import mediator from './mediator';
 
 export default function renderArticles(id) {
   (function () {
-    const apiKey = '59c232ebefc84b5d9c489f4222161cf2',
-    resourceUrl = `https://newsapi.org/v2/top-headlines?sources=${id}&apiKey=${apiKey}`,
-    articlesList = document.getElementById('resourceOutput'),
-    resourcesList = document.getElementById('newsResources'),
-    button = document.getElementById('closeButton'),
-    header = document.getElementById('mainContent'),
-    getResponse = (response) => response.json(),
-    addHidden = (elem) => elem.classList.add('hidden'),
-    removeHidden = (elem) => elem.classList.remove('hidden'),
-    checkbox = document.getElementById('removeImages'),
-    checkboxWrapper = document.getElementById('checkboxWrapper');
+    const apiKey = '59c232ebefc84b5d9c489f4222161cf2';
+    const resourceUrl = `https://newsapi.org/v2/top-headlines?sources=${id}&apiKey=${apiKey}`;
+    const articlesList = document.getElementById('resourceOutput');
+    const resourcesList = document.getElementById('newsResources');
+    const button = document.getElementById('closeButton');
+    const header = document.getElementById('mainContent');
+    const getResponse = (response) => response.json();
+    const addHidden = (elem) => elem.classList.add('hidden');
+    const removeHidden = (elem) => elem.classList.remove('hidden');
+    const checkbox = document.getElementById('removeImages');
+    const checkboxWrapper = document.getElementById('checkboxWrapper');
 
     fetch(resourceUrl)
     .then(getResponse)
     .then(source => {
       source.articles.forEach(article => {
         const render = () => {
-          let newArticle;
+          const newArticle = new ResourcePage(article);
 
           if (checkbox.checked) {
-            newArticle = new PlainTextResourcePage(article);
-          } else {
-            newArticle = new ResourcePage(article);
+            mediator.installTo(newArticle);
+            newArticle.publish();
           }
 
-          newArticle.createList('article', 'resourceOutput');
+          newArticle.createListItem('article', 'resourceOutput');
         };
 
         render();
@@ -45,6 +45,7 @@ export default function renderArticles(id) {
     const buttonClick = (e) => {
       removeHidden(resourcesList);
       removeHidden(checkboxWrapper);
+      addHidden(button);
       articlesList.innerHTML = '';
     };
 

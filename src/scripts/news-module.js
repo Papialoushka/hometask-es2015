@@ -7,8 +7,8 @@ import data from '../../data/data.json';
 import Button from './button';
 
 (function () {
-  const resourcesList = document.getElementById('newsResources'),
-  button = new Button();
+  const resourcesList = document.getElementById('newsResources');
+  const button = new Button();
 
   button.create();
   renderResources();
@@ -24,7 +24,4 @@ import Button from './button';
   resourcesList.addEventListener('click', resourceClick, false);
 
   console.log(JSON.stringify(data));
-
-  // To check if plugin works.
-  console.log(42);
 })();

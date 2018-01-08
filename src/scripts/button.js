@@ -6,8 +6,8 @@ export default class Button {
   }
 
   create() {
-    const button = document.createElement('button'),
-          buttonWrapper = document.getElementById('buttonWrapper');
+    const button = document.createElement('button');
+    const buttonWrapper = document.getElementById('buttonWrapper');
 
     button.className = this.state;
     button.id = this.id;
