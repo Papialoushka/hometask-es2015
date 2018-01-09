@@ -1,14 +1,26 @@
 export default class ObserversList {
   constructor() {
-    this.observers = [];
+    this.observers = {};
   }
 
-  subscribe(newObserver) {
-    this.observers.push(newObserver);
+  subscribe(newObserver, newEvent) {
+    this.observers[newEvent] = [];
+
+    if (!this[newEvent]) {
+      Object.defineProperty(this, newEvent, {
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    }
+
+    if (!this.observers[newEvent][newObserver]) {
+      this.observers[newEvent].push(newObserver);
+    }
   }
 
-  unsubscribe(newObserver) {
-    this.observers = this.observers.filter(
+  unsubscribe(newObserver, newEvent) {
+    this.observers[newEvent] = this.observers[newEvent].filter(
       (currentObserver) => {
         if (currentObserver !== newObserver) {
           return currentObserver;
@@ -17,15 +29,14 @@ export default class ObserversList {
     );
   }
 
-  createInstance(obj) {
+  createNewEmitter(obj) {
     obj.emit = this.emit;
     obj.observers = this.observers;
   }
 
   emit(customEvent) {
-    this.observers.forEach(currentObserver => {
+    this.observers[customEvent].forEach(currentObserver => {
       currentObserver();
-      console.log(`${customEvent} emited`);
     });
   }
 }

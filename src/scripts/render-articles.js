@@ -23,29 +23,30 @@ export default function renderArticles(id) {
     const observe = new ObserversList();
 
     fetch(resourceUrl)
-    .then(getResponse)
-    .then(source => {
-      source.articles.forEach(article => {
-        const render = () => {
-          const newArticle = new ResourcePage(article);
+      .then(getResponse)
+      .then(source => {
+        source.articles.forEach(article => {
+          const render = () => {
+            const newArticle = new ResourcePage(article);
 
-          if (checkbox.checked) {
-            mediator.installTo(newArticle);
-            newArticle.publish();
-          }
+            if (checkbox.checked) {
+              mediator.installTo(newArticle);
+              newArticle.publish();
+            }
 
-          newArticle.createListItem('article', 'resourceOutput');
-        };
+            newArticle.createListItem('article', 'resourceOutput');
+          };
 
-        render();
-        addHidden(resourcesList);
-        addHidden(checkboxWrapper);
-        removeHidden(buttonReturn);
-        observe.subscribe(scroll);
-        observe.createInstance(body);
-        body.emit('need scroll');
+          render();
+          addHidden(resourcesList);
+          addHidden(checkboxWrapper);
+          removeHidden(buttonReturn);
+          observe.subscribe(scroll, 'scroll');
+          observe.createNewEmitter(body);
+          body.emit('scroll');
+          observe.unsubscribe(scroll, 'scroll');
+        });
       });
-    });
 
     const buttonClick = (e) => {
       removeHidden(resourcesList);
