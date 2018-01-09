@@ -4,6 +4,9 @@ import Button from './button';
 import './../styles/screen.css';
 import './../styles/articles.css'
 import mediator from './mediator';
+import buttonReturn from './button';
+import ObserversList from './observer';
+import scroll from './scroll';
 
 export default function renderArticles(id) {
   (function () {
@@ -11,13 +14,13 @@ export default function renderArticles(id) {
     const resourceUrl = `https://newsapi.org/v2/top-headlines?sources=${id}&apiKey=${apiKey}`;
     const articlesList = document.getElementById('resourceOutput');
     const resourcesList = document.getElementById('newsResources');
-    const button = document.getElementById('closeButton');
-    const header = document.getElementById('mainContent');
+    const body = document.body;
     const getResponse = (response) => response.json();
     const addHidden = (elem) => elem.classList.add('hidden');
     const removeHidden = (elem) => elem.classList.remove('hidden');
     const checkbox = document.getElementById('removeImages');
     const checkboxWrapper = document.getElementById('checkboxWrapper');
+    const observe = new ObserversList();
 
     fetch(resourceUrl)
     .then(getResponse)
@@ -37,18 +40,20 @@ export default function renderArticles(id) {
         render();
         addHidden(resourcesList);
         addHidden(checkboxWrapper);
-        removeHidden(button);
-        header.scrollIntoView();
+        removeHidden(buttonReturn);
+        observe.subscribe(scroll);
+        observe.createInstance(body);
+        body.emit('need scroll');
       });
     });
 
     const buttonClick = (e) => {
       removeHidden(resourcesList);
       removeHidden(checkboxWrapper);
-      addHidden(button);
+      addHidden(buttonReturn);
       articlesList.innerHTML = '';
     };
 
-    button.addEventListener('click', buttonClick, false);
+    buttonReturn.addEventListener('click', buttonClick, false);
   })();
 }

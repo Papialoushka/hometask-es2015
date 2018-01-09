@@ -1,4 +1,4 @@
-export default class Button {
+class Button {
   constructor() {
     this.state = 'hidden';
     this.id = 'closeButton';
@@ -7,13 +7,14 @@ export default class Button {
 
   create() {
     const button = document.createElement('button');
-    const buttonWrapper = document.getElementById('buttonWrapper');
 
     button.className = this.state;
     button.id = this.id;
     button.innerHTML = this.content;
-
-    buttonWrapper.appendChild(button);
     return button;
   }
 }
+
+const buttonReturn = new Button().create();
+
+export default buttonReturn;

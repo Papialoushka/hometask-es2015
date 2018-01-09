@@ -4,14 +4,14 @@ import './../styles/screen.css';
 import renderArticles from './render-articles';
 import renderResources from './render-resources';
 import data from '../../data/data.json';
-import Button from './button';
+import buttonReturn from './button';
 
 (function () {
   const resourcesList = document.getElementById('newsResources');
-  const button = new Button();
+  const buttonWrapper = document.getElementById('buttonWrapper');
 
-  button.create();
   renderResources();
+  buttonWrapper.appendChild(buttonReturn);
 
   const resourceClick = (e) => {
     e.preventDefault();
@@ -22,6 +22,4 @@ import Button from './button';
   };
 
   resourcesList.addEventListener('click', resourceClick, false);
-
-  console.log(JSON.stringify(data));
 })();
