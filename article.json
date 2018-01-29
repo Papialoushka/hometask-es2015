@@ -1,0 +1,33 @@
+{
+"context": "http://schema.org",
+"type": "NewsArticle",
+"mainEntityOfPage":{
+"type":"WebPage",
+"id": ""
+},
+"headline": "Lorem ipsum dolor sit amet",
+"image": {
+"type": "ImageObject",
+"url": "",
+"height": "",
+"width": ""
+},
+"datePublished": "2016-01-01",
+"dateModified": "2016-01-01",
+"author": {
+"@type": "Person",
+"name": "Sed odio morbi quis commodo odio"
+},
+"publisher": {
+"@type": "Organization",
+"name": "Sed odio morbi quis commodo odio",
+"logo": {
+"@type": "ImageObject",
+"url": "",
+"width": "",
+"height": ""
+}
+},
+"description": "Sed odio morbi quis commodo odio",
+"articleBody": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra vitae congue eu consequat ac felis donec. Tempor orci dapibus ultrices in iaculis nunc sed augue lacus."
+}
