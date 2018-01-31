@@ -1,23 +1,15 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const winston = require('winston');
 const json = require('./article.json');
+const logger = require('./logger');
 
-const index = require('./routes/index');
+const blogs = require('./routes/blogs');
 const users = require('./routes/users');
 
 // View engine setup.
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
-const logger = winston.createLogger({
-  level: 'info',
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({filename: 'combined.log'})
-  ]
-});
 
 app.all('*', (req, res, next) => {
   console.log(json);
@@ -27,7 +19,7 @@ app.all('*', (req, res, next) => {
   next();
 });
 
-app.use('/', index);
+app.use('/', blogs);
 app.use('/users', users);
 
 // Catch 404 and forward to error handler.
