@@ -26,7 +26,7 @@ app.all('*', (req, res, next) => {
 });
 
 app.use('/', blogs);
-app.use('/login', users);
+app.use('/', users);
 
 // Catch 404 and forward to error handler.
 app.use((req, res, next) => {
