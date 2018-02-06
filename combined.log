@@ -63,3 +63,17 @@
 {"message":"date: 09:43:06, url: /favicon.ico, method: GET","level":"info"}
 {"message":"date: 09:43:15, url: /login, method: POST","level":"info"}
 {"message":"date: 09:43:15, url: /public/stylesheets/style.css, method: GET","level":"info"}
+{"message":"date: 12:08:18, url: /, method: GET","level":"info"}
+{"message":"date: 12:08:18, url: /public/stylesheets/style.css, method: GET","level":"info"}
+{"message":"date: 12:08:18, url: /favicon.ico, method: GET","level":"info"}
+{"message":"date: 12:08:25, url: /public/stylesheets/style.css, method: GET","level":"info"}
+{"message":"date: 12:08:55, url: /, method: GET","level":"info"}
+{"message":"date: 12:08:55, url: /public/stylesheets/style.css, method: GET","level":"info"}
+{"message":"date: 12:09:33, url: /login, method: GET","level":"info"}
+{"message":"date: 12:09:33, url: /public/stylesheets/style.css, method: GET","level":"info"}
+{"message":"date: 12:10:22, url: /login, method: GET","level":"info"}
+{"message":"date: 12:10:22, url: /public/stylesheets/style.css, method: GET","level":"info"}
+{"message":"date: 12:10:33, url: /new, method: GET","level":"info"}
+{"message":"date: 12:12:20, url: /new, method: GET","level":"info"}
+{"message":"date: 12:14:39, url: /blogs, method: GET","level":"info"}
+{"message":"date: 12:14:45, url: /new, method: GET","level":"info"}

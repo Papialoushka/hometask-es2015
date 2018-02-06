@@ -14,7 +14,7 @@ const users = require('./routes/users');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(express.session({ secret: 'my_secret' }));
+app.use(session({ secret: 'my_secret' }));
 app.use(passport.initialize());
 app.use(passport.session());
 

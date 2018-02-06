@@ -27,7 +27,7 @@ exports.blogs_detail = (req, res) => {
 // Add a new Blog.
 exports.blogs_add_new = (req, res) => {
   const newBlog = new blogModel({
-    _id: 1,
+    blog_id: 1,
     title: 'Some title',
     author: 'Some Author',
     body: 'Some info only interesting to the author',
