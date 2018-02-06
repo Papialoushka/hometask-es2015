@@ -4,19 +4,18 @@ const path = require('path');
 const json = require('./article.json');
 const logger = require('./logger');
 const passport = require('passport');
-const bodyParser = require('body-parser');
 const session = require('express-session');
 
 const blogs = require('./routes/blogs');
 const users = require('./routes/users');
 
+app.use(session({secret: 'my_secret'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // View engine setup.
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
-app.use(session({ secret: 'my_secret' }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.all('*', (req, res, next) => {
   console.log(json);

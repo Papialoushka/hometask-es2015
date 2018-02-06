@@ -1,3 +1,3 @@
 exports.users = (req, res) => {
-  res.render('index', { message: 'Please enter your login details' });
+  res.render('login', { title: 'Login', message: 'Please enter your login details' });
 };

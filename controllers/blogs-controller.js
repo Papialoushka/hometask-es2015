@@ -1,4 +1,5 @@
 const blogModel = require('../models/blog');
+const mongoid = require('mongoid-js');
 
 // Display Homepage.
 exports.index = (req, res) => res.render('index', {title: 'Homepage', message: 'Site Home Page'});
@@ -27,7 +28,7 @@ exports.blogs_detail = (req, res) => {
 // Add a new Blog.
 exports.blogs_add_new = (req, res) => {
   const newBlog = new blogModel({
-    blog_id: 1,
+    blog_id: mongoid(),
     title: 'Some title',
     author: 'Some Author',
     body: 'Some info only interesting to the author',
