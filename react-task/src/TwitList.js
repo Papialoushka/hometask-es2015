@@ -5,10 +5,9 @@ class TwitList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      twits: []
+      twits: [],
     };
 
-    this.filterTwits = this.filterTwits.bind(this);
     this.addToList = this.addToList.bind(this);
     this.deleteFromList = this.deleteFromList.bind(this);
     this.filterTwits = this.filterTwits.bind(this);
@@ -43,22 +42,23 @@ class TwitList extends Component {
   }
 
   filterTwits(event) {
-    const twits = this.state.twits;
-    const filteredList = twits.filter((item) => item === twits.author);
+    const initialTwits = this.state.twits;
+    const preserveInitialTwits = initialTwits.slice();
 
-    this.setState({twits: filteredList});
+    if (event.target.value === '') {
+      this.setState({twits: preserveInitialTwits});
+    } else {
+      const filteredList = initialTwits.filter((twit) => twit.author === event.target.value || twit.twit === event.target.value);
+
+      this.setState({twits: filteredList});
+    }
   }
 
   handleTwitChange(event) {
+    const initialTwits = this.state.twits;
+    const preserveInitialTwits = initialTwits.slice();
     this.setState({
       twit: event.target.value
-    });
-  }
-
-  resetState() {
-    this.setState({
-      currentAuthor: '',
-      twit: ''
     });
   }
 
@@ -75,7 +75,7 @@ class TwitList extends Component {
           </label>
           <input type="submit" value="Submit"/>
         </form>
-        <TwitItem entries={this.state.twits} delete={this.deleteFromList}>{this.state.twits}</TwitItem>
+        <TwitItem entries={this.state.twits} filtered={this.state.filtered} delete={this.deleteFromList}>{this.state.twits}</TwitItem>
       </div>
     );
   }
