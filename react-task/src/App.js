@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TwitList from './TwitList';
+import TwitList from './components/twit-list/TwitList';
+import TwitForm from './components/twit-form/TwitForm';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo"/>
           <h1 className="App-title">Welcome to our React Homemade Twitter</h1>
         </header>
+        <TwitForm />
         <TwitList author="me" twit="some twit" />
       </div>
     );
