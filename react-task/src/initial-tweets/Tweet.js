@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import TwitList from './../twit-list/TwitList';
+import TweetList from './TweetList';
 
-class TwitItem extends Component {
+class Tweet extends Component {
   constructor(props) {
     super(props);
     this.addTwit = this.addTwit.bind(this);
@@ -28,4 +28,4 @@ class TwitItem extends Component {
   }
 }
 
-export default TwitItem;
+export default Tweet;

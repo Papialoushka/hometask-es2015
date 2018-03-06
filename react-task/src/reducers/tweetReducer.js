@@ -1,17 +1,30 @@
+import {ADD_TWEET, DELETE_TWEET, FILTER_TWEETS} from './../actions';
 
-import * as actionTypes from './../actions/actionTypes';
+const initialState = {
+  tweets: []
+};
 
-export default (state = [], action) => {
-    switch (action.type){
-
-      case actionTypes.ADD_TWEET:
+const tweetReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_TWEET:
       return [
         ...state,
         Object.assign({}, action.tweet)
       ];
-      case actionTypes.DELETE_TWEET:
+    case DELETE_TWEET:
       return state.filter((data, i) => i !== action.id);
-      default:
-            return state;
-    }
-  };
+    // case FILTER_TWEETS:
+    //   return state.map((tweets, id) => {
+    //     if (id === action.id) {
+    //       return Object.assign({}, state, {
+    //         tweets: tweets
+    //       })
+    //     }
+    //     return state;
+    //   });
+    default:
+      return state;
+  }
+};
+
+export default tweetReducer;
