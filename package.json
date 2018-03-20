@@ -1,0 +1,24 @@
+{
+  "name": "hometask-es2015-angular-part-one",
+  "version": "1.0.0",
+  "description": "ToDo List with angularjs",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "webpack": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Papialoushka/hometask-es2015.git"
+  },
+  "author": "Papialoushka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Papialoushka/hometask-es2015/issues"
+  },
+  "homepage": "https://github.com/Papialoushka/hometask-es2015#readme"
+}

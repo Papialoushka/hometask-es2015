@@ -1,0 +1,24 @@
+<section>
+    <header><h1>Start managing your tasks!</h1></header>
+    <main>
+        <p>You have {{ getToDoCount() }} tasks to do.</p>
+        <form class="find-task">
+            <input ng-model="query" type="text"
+                   placeholder="Filter by">
+        </form>
+        <div class="sort-wrapper">
+            <button ng-click="sortBy('date')">Date</button>
+            <span class="sort-order" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span>
+        </div>
+        <div ng-include=" 'task-list/list.html' "></div>
+        <span class="error-message" ng-show="taskCreate.taskName.$touched && taskCreate.taskName.$invalid">The task name is required. It should be at least 20 symbols long</span>
+        <form name="taskCreate">
+            <label for="taskName">Please enter your next task
+                <input type="text" id="taskName" name="taskName" ng-model="taskToDo" ng-minlength="7" required autofocus>
+            </label>
+            <label for="submitTask">
+                <input type="button" id="submitTask" value="Add" ng-click="addTask()" ng-disabled="taskCreate.taskName.$error.required || taskCreate.taskName.$error.minlength">
+            </label>
+        </form>
+    </main>
+</section>
