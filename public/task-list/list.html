@@ -1,0 +1,14 @@
+<ol class="tasks-wrapper">
+    <li ng-repeat="task in tasks | filter: query | orderBy: propertyName: reverse">
+        <a class="name" ng-click="editTask($index)" href="/edit/{{task.id}}">{{task.name}}</a><br/>
+        <label for="taskCompleted" class="check-completed">
+            <input type="checkbox" id="taskCompleted" ng-model="checked">
+        </label>
+        {{ task.name }}
+        <span class="task-date">created: {{ task.date | date: 'medium'}}</span>
+        <span ng-if="checked" class="task-completed">Completed</span>
+        <label for="removeTask">
+            <input type="button" class="remove-task" id="removeTask" value="Remove task" ng-click="removeTask($index)">
+        </label>
+    </li>
+</ol>

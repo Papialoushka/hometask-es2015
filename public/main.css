@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+}
+
+*:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: #f5f1ea;
+}
+
+header {
+  background: #999a8f;
+}
+
+h1 {
+  margin: 0;
+  padding: 1.5em 0;
+  color: #ffffff;
+}
+
+h1,
+.task-count {
+  text-align: center;
+}
+
+main {
+  padding: 1.5em;
+}
+
+li,
+p,
+label {
+  color: #494949;
+}
+
+li {
+  position: relative;
+}
+
+p {
+  margin-top: 0;
+}
+
+input {
+  border: 1px solid #000000;
+}
+
+input[type="text"],
+.task-date {
+  display: block;
+  margin: 1em 0 0;
+}
+
+button,
+input[type="text"],
+.task-submit,
+.remove-task {
+  padding: 0.5em 1em;
+}
+
+.remove-task {
+  border-color: #83986b;
+  background: #83986b;
+  color: #ffffff;
+}
+
+.sort-wrapper,
+.sort-button,
+.sort-order {
+  display: inline-block;
+}
+
+.sort-wrapper {
+  border: 1px solid #000000;
+  background: #999a8f;
+}
+
+.sort-button {
+  outline: none;
+}
+
+.sort-order {
+  margin-right: 0.7em;
+}
+
+.sort-wrapper:focus,
+.sort-wrapper:hover,
+.sort-wrapper:active {
+  outline: 3px auto blue;
+}
+
+.sort-button {
+  background: transparent;
+  border: 0;
+}
+
+.sort-order:after {
+  content: '\25b2';
+}
+
+.sort-order.reverse:after {
+  content: '\25bc';
+}
+
+.skip-link {
+  position: absolute;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+.task-count {
+  font-size: 2em;
+}
+
+.find-task {
+  margin-bottom: 1em;
+}
+
+.tasks-wrapper {
+  display: inline-block;
+  width: auto;
+  padding-left: 0;
+  background: #fdfaf5;
+}
+
+.tasks-wrapper li {
+  padding: 0.5em 6em 0.5em 1em;
+  list-style-position: inside;
+  font-size: 1.5em;
+}
+
+.tasks-wrapper li:not(:last-child) {
+  border-bottom: 3px solid #f5f1ea;
+}
+
+.task-completed {
+  position: absolute;
+  right: 1em;
+  top: 0.7em;
+  padding: 0.3em 1em;
+  border-radius: 1em;
+  background: #14892c;
+  color: #ffffff;
+  font-size: 0.7em;
+}
+
+.check-completed {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: top;
+}
+
+.task-date {
+  margin-top: 0.5em;
+  font-size: 0.7em;
+}
+
+.error-message {
+  color: #7f0000;
+}
+
+.task-name.ng-invalid {
+  border: 2px solid #7f0000;
+}
+
+.task-submit {
+  margin-top: 1em;
+  background: #707166;
+  color: #ffffff;
+}
+
+.task-submit[disabled="disabled"] {
+  opacity: 0.3;
+}
+
+@media all and (max-width: 500px) {
+  input[type="text"] {
+    width: 100%;
+  }
+
+  .tasks-wrapper {
+    width: 100%;
+  }
+
+  .tasks-wrapper li {
+    padding: 0.5em;
+  }
+
+  .task-completed {
+    right: 0.5em;
+    top: auto;
+    bottom: 0.5em;
+  }
+}
