@@ -1,0 +1,13 @@
+<ul class="tasks-wrapper" ng-repeat="task in tasks | filter: query | orderBy: propertyName: reverse">
+    <li>
+        <label for="taskCompleted">
+            <input type="checkbox" id="taskCompleted" ng-model="checked">
+        </label>
+        {{ task.name }}
+        <span class="task-date">created: {{ task.date | date: 'medium'}}</span>
+        <span ng-if="checked" class="task-completed">Completed</span>
+        <label for="removeTask">
+            <input type="button" id="removeTask" value="Remove" ng-click="removeTask($index)">
+        </label>
+    </li>
+</ul>

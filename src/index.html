@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="manageTasksApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage your tasks with Angular</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.min.js"></script>
+</head>
+<body>
+<div class="view-container">
+    <div ng-view class="view-frame"></div>
+</div>
+<script src="app.module.js"></script>
+<script src="app.config.js"></script>
+<script src="task-list/task-list.module.js"></script>
+<script src="task-list/task-list.component.js"></script>
+<script src="task-form/task-form.module.js"></script>
+<script src="task-form/task-form.component.js"></script>
+<script src="initial-tasks/initial-tasks.module.js"></script>
+<script src="initial-tasks/initial-tasks.service.js"></script>
+</body>
+</html>
