@@ -1,3 +1,12 @@
+:root {
+  --primary-foreground-color:  #ffffff;
+  --secondary-foreground-color:  #494949;
+  --primary-background-color: #f5f1ea;
+  --secondary-background-color: #999a8f;
+  --remove-button-color: #83986b;
+  --border-color:  #000000;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,17 +23,17 @@ body {
 }
 
 body {
-  background: #f5f1ea;
+  background: var(--primary-background-color);
 }
 
 header {
-  background: #999a8f;
+  background: var(--secondary-background-color);
 }
 
 h1 {
   margin: 0;
   padding: 1.5em 0;
-  color: #ffffff;
+  color: var(--primary-foreground-color);
 }
 
 h1,
@@ -39,7 +48,7 @@ main {
 li,
 p,
 label {
-  color: #494949;
+  color: var(--secondary-foreground-color);
 }
 
 li {
@@ -51,7 +60,7 @@ p {
 }
 
 input {
-  border: 1px solid #000000;
+  border: 1px solid var(--border-color);
 }
 
 input[type="text"],
@@ -68,9 +77,9 @@ input[type="text"],
 }
 
 .remove-task {
-  border-color: #83986b;
-  background: #83986b;
-  color: #ffffff;
+  border-color: var(--remove-button-color);
+  background: var(--remove-button-color);
+  color: var(--primary-foreground-color);
 }
 
 .sort-wrapper,
@@ -80,8 +89,8 @@ input[type="text"],
 }
 
 .sort-wrapper {
-  border: 1px solid #000000;
-  background: #999a8f;
+  border: 1px solid var(--border-color);
+  background: var(--secondary-background-color);
 }
 
 .sort-button {
@@ -146,7 +155,7 @@ input[type="text"],
 }
 
 .tasks-wrapper li:not(:last-child) {
-  border-bottom: 3px solid #f5f1ea;
+  border-bottom: 3px solid var(--primary-background-color);
 }
 
 .task-completed {
@@ -156,7 +165,7 @@ input[type="text"],
   padding: 0.3em 1em;
   border-radius: 1em;
   background: #14892c;
-  color: #ffffff;
+  color: var(--primary-foreground-color);
   font-size: 0.7em;
 }
 
@@ -183,7 +192,7 @@ input[type="text"],
 .task-submit {
   margin-top: 1em;
   background: #707166;
-  color: #ffffff;
+  color: var(--primary-foreground-color);
 }
 
 .task-submit[disabled="disabled"] {
