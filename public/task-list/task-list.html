@@ -1,8 +1,8 @@
 <section>
     <header><h1 id="contentMain">Start managing your tasks!</h1></header>
     <main>
-        <p class="task-count">You have {{ getToDoCount() }} <span ng-show="getToDoCount() == 1">task</span>
-            <span ng-show="getToDoCount() != 1">tasks</span> to do.</p>
+        <p class="task-count">You have {{ createTasks.getToDoCount() }} <span ng-show="createTasks.getToDoCount() == 1">task</span>
+            <span ng-show="createTasks.getToDoCount() != 1">tasks</span> to do.</p>
         <form class="find-task">
             <label for="findTask">Start typing task name
             <input ng-model="query" type="text"
@@ -13,6 +13,17 @@
             <button class="sort-button" ng-click="sortBy('date')">Sort by date</button>
             <span class="sort-order" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span>
         </div>
+        <!--<ul id="filters">-->
+            <!--<li>-->
+                <!--<button ng-click="setFilterStatus('')">All</button>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<button>Recent</button>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<button ng-click="showCompleted()">Completed</button>-->
+            <!--</li>-->
+        <!--</ul>-->
         <div ng-include=" 'task-list/list.html' "></div>
         <span class="error-message" ng-hide="taskCreate.taskName.$touched && taskCreate.taskName.$valid">The task name is required. It should be at least 7 symbols long</span>
         <form name="taskCreate" ng-submit="addTask()">

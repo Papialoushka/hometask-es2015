@@ -1,14 +1,15 @@
 <section class="edit">
     <header><h1>Edit your task</h1></header>
     <main>
-        <span class="error-message" ng-show="taskEdit.taskName.$touched && taskEdit.taskName.$invalid">The task name is required. It should be at least 20 symbols long</span>
-        <form name="taskEdit" ng-submit="saveTask()" novalidate>
+        <div ng-include=" 'task-list/list.html' "></div>
+        <span class="error-message" ng-hide="taskCreate.taskName.$touched && taskCreate.taskName.$valid">The task name is required. It should be at least 7 symbols long</span>
+        <form name="taskEdit" ng-submit="saveTask($index)" novalidate>
             <label for="taskName">Please edit your task
                 <input type="text" id="taskName" name="taskName" ng-model="newTaskName" ng-minlength="7" required
                        autofocus>
             </label>
             <label for="saveTask">
-                <input type="button" id="saveTask" value="Save">
+                <input type="submit" id="saveTask" value="Save" ng-disabled="taskCreate.taskName.$error.required || taskCreate.taskName.$error.minlength">
             </label>
         </form>
     </main>

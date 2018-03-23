@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 
-router.get('/edit', (req, res) => {
+router.get('/edit/:id', (req, res) => {
   res.render('index');
 });
 

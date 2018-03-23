@@ -12,8 +12,8 @@ server.set('view engine', 'pug');
 
 server.use(express.static(__dirname + '/public/'));
 
-server.use('/', home);
-server.use('/edit', home);
+server.all('/*', home);
+server.use('/edit/:id', home);
 
 server.listen(port, function () {
   console.log('Example app listening on port 3000!');

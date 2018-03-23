@@ -1,1 +1,1 @@
-angular.module('taskList', ['initialTasks']);
+angular.module('taskList', ['initialTasks', 'ngRoute']);
