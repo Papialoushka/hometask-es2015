@@ -1,8 +1,8 @@
 <ol class="tasks-wrapper">
-    <li ng-repeat="task in createTasks.tasks | filter: query | orderBy: propertyName: reverse">
+    <li ng-repeat="task in createTasks.tasks | filter: filterByCompleted(filterParameter) | filter: query | orderBy: propertyName: reverse">
         <a class="name" ng-href="/edit/{{task.id}}" ng-click="toggleEditMode()">Edit</a>
         <label for="taskCompleted" class="check-completed">
-            <input type="checkbox" id="taskCompleted" ng-model="checked">
+            <input type="checkbox" id="taskCompleted" ng-model="checked" ng-click="completeTask($index)">
         </label>
         {{ task.name }}
         <span class="task-date">created: {{ task.date | date: 'medium'}}</span>

@@ -76,6 +76,19 @@ input[type="text"],
   padding: 0.5em 1em;
 }
 
+.filter-buttons {
+  display: flex;
+  padding: 0;
+}
+
+.filter-buttons li {
+  display: flex;
+}
+
+.filter-buttons li:first-child {
+  margin-right: 2em;
+}
+
 .remove-task {
   border-color: var(--remove-button-color);
   background: var(--remove-button-color);
@@ -171,9 +184,21 @@ input[type="text"],
 
 .check-completed {
   display: inline-block;
-  width: 25px;
-  height: 25px;
+}
+
+.check-completed input {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
   vertical-align: top;
+}
+
+.check-completed input.ng-not-empty {
+  display: none;
+}
+
+edit-task .check-completed input {
+  display: none;
 }
 
 .task-date {

@@ -5,7 +5,7 @@ angular.module('taskList').component('editTask', {
 
     $scope.toggleEditMode = function () {
       const id = $routeParams.taskId;
-      const item = $scope.createTasks.tasks.find((value) => value.id === id);
+      const item = $rootScope.createTasks.tasks.find((value) => value.id === id);
       $scope.createTasks.newTaskName = item.name;
       $scope.createTasks.newTaskDate = item.date;
       $scope.createTasks.newTaskCompleted = item.completed;
