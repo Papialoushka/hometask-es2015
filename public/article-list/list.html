@@ -1,0 +1,11 @@
+<ul class="articles-wrapper">
+  <li ng-repeat="article in articles | filter: query | orderBy: propertyName: reverse">
+    <a class="name" ui-sref="/edit/{{task.id}}" ng-click="toggleEditMode()">Edit</a>
+    {{ article.name }}
+    <span class="article-date">created: {{ article.date | date: 'medium'}}</span>
+    <label for="removeArticle">
+      <input type="button" class="removeArticle" id="removeArticle" value="Remove article"
+             ng-click="removeArticle($index)">
+    </label>
+  </li>
+</ul>

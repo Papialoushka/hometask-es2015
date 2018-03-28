@@ -1,16 +1,14 @@
-angular.module('manageTasksApp').config(['$locationProvider', '$routeProvider',
-  function config($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('');
+angular.module('manageArticleApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$provide',
+  function config($stateProvider, $urlRouterProvider, $locationProvider, $provide) {
+    $locationProvider.html5Mode(true); // enable html5Mode for pushstate ('#'-less URLs DOESN'T WORK)
+    $urlRouterProvider.otherwise('/');
 
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
+    $stateProvider.state('home', {
+      url: '/',
+      templateUrl: 'article-list/article-list.html'
+    }).state('edit', {
+      url: '/edit/:articleId',
+      templateUrl: 'article-list/edit-article.html'
     });
-
-    $routeProvider.when('/', {
-      template: '<task-list></task-list>'
-    }).when('/edit/:taskId/', {
-      template: '<edit-task></edit-task>'
-    }).otherwise('/');
   }
 ]);

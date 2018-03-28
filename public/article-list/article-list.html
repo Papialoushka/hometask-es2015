@@ -1,0 +1,33 @@
+<header><h1 id="contentMain">Articles</h1></header>
+<main>
+  <p class="counter"> {{ getCount() }} <span
+      ng-show="getCount() == 1">article has</span>
+    <span ng-show="getCount() != 1">articles have</span> been created.</p>
+  <form class="find-article">
+    <label for="findArticle">To find a task start typing task name
+      <input ng-model="query" type="text"
+             placeholder="e.g. An article about ..." name="findArticle" id="findArticle">
+    </label>
+  </form>
+  <div class="sort-wrapper">
+    <button class="sort-button" ng-click="sortBy('date')">Sort by date</button>
+    <span class="sort-order" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span>
+  </div>
+  <div ng-include=" 'article-list/list.html' "></div>
+  <span class="error-message" ng-hide="articleCreate.articleName.$touched && articleCreate.articleName.$valid">The article name is required. It should be at least 7 symbols long</span>
+  <form name="articleCreate" ng-submit="addArticle()">
+    <label for="articleName">Please name your article
+      <input class="article-name" type="text" id="articleName" name="articleName" ng-model="articleName" ng-minlength="7"
+             required autofocus>
+    </label>
+    <span class="error-message" ng-hide="articleCreate.articleContent.$touched && articleCreate.articleContent.$valid">The article text is required. It should be at least 17 symbols long</span>
+    <label for="articleContent">Please write your article
+      <input class="article-content" type="text" id="articleContent" name="articleContent" ng-model="articleContent" ng-minlength="17"
+             required>
+    </label>
+    <label for="submitArticle">
+      <input class="article-submit" type="submit" id="submitArticle" value="Add"
+             ng-disabled="articleCreate.articleName.$error.required || articleCreate.articleName.$error.minlength || articleCreate.articleContent.$error.minlength || articleCreate.articleContent.$error.required">
+    </label>
+  </form>
+</main>

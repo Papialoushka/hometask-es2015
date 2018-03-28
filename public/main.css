@@ -37,7 +37,7 @@ h1 {
 }
 
 h1,
-.task-count {
+.counter {
   text-align: center;
 }
 
@@ -146,62 +146,32 @@ input[type="text"],
   height: auto;
 }
 
-.task-count {
+.counter {
   font-size: 2em;
 }
 
-.find-task {
+.find-article {
   margin-bottom: 1em;
 }
 
-.tasks-wrapper {
+.articles-wrapper {
   display: inline-block;
   width: auto;
   padding-left: 0;
   background: #fdfaf5;
 }
 
-.tasks-wrapper li {
+.articles-wrapper li {
   padding: 0.5em 6em 0.5em 1em;
   list-style-position: inside;
   font-size: 1.5em;
 }
 
-.tasks-wrapper li:not(:last-child) {
+.articles-wrapper li:not(:last-child) {
   border-bottom: 3px solid var(--primary-background-color);
 }
 
-.task-completed {
-  position: absolute;
-  right: 1em;
-  top: 0.7em;
-  padding: 0.3em 1em;
-  border-radius: 1em;
-  background: #14892c;
-  color: var(--primary-foreground-color);
-  font-size: 0.7em;
-}
-
-.check-completed {
-  display: inline-block;
-}
-
-.check-completed input {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  vertical-align: top;
-}
-
-.check-completed input.ng-not-empty {
-  display: none;
-}
-
-edit-task .check-completed input {
-  display: none;
-}
-
-.task-date {
+.article-date {
   margin-top: 0.5em;
   font-size: 0.7em;
 }
@@ -210,17 +180,17 @@ edit-task .check-completed input {
   color: #7f0000;
 }
 
-.task-name.ng-invalid {
+.article-name.ng-invalid {
   border: 2px solid #7f0000;
 }
 
-.task-submit {
+.article-submit {
   margin-top: 1em;
   background: #707166;
   color: var(--primary-foreground-color);
 }
 
-.task-submit[disabled="disabled"] {
+.article-submit[disabled="disabled"] {
   opacity: 0.3;
 }
 
@@ -229,17 +199,11 @@ edit-task .check-completed input {
     width: 100%;
   }
 
-  .tasks-wrapper {
+  .articles-wrapper {
     width: 100%;
   }
 
-  .tasks-wrapper li {
+  .articles-wrapper li {
     padding: 0.5em;
-  }
-
-  .task-completed {
-    right: 0.5em;
-    top: auto;
-    bottom: 0.5em;
   }
 }
