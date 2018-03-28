@@ -17,12 +17,14 @@
   <span class="error-message" ng-hide="articleCreate.articleName.$touched && articleCreate.articleName.$valid">The article name is required. It should be at least 7 symbols long</span>
   <form name="articleCreate" ng-submit="addArticle()">
     <label for="articleName">Please name your article
-      <input class="article-name" type="text" id="articleName" name="articleName" ng-model="articleName" ng-minlength="7"
+      <input class="article-name" type="text" id="articleName" name="articleName" ng-model="articleName"
+             ng-minlength="7"
              required autofocus>
     </label>
     <span class="error-message" ng-hide="articleCreate.articleContent.$touched && articleCreate.articleContent.$valid">The article text is required. It should be at least 17 symbols long</span>
     <label for="articleContent">Please write your article
-      <input class="article-content" type="text" id="articleContent" name="articleContent" ng-model="articleContent" ng-minlength="17"
+      <input class="article-content" type="text" id="articleContent" name="articleContent" ng-model="articleContent"
+             ng-minlength="17"
              required>
     </label>
     <label for="submitArticle">

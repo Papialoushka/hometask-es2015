@@ -1,14 +1,16 @@
 angular.module('manageArticleApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$provide',
   function config($stateProvider, $urlRouterProvider, $locationProvider, $provide) {
-    $locationProvider.html5Mode(true); // enable html5Mode for pushstate ('#'-less URLs DOESN'T WORK)
+    $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('home', {
       url: '/',
-      templateUrl: 'article-list/article-list.html'
+      templateUrl: 'article-list/article-list.html',
+      controller: 'articleListController'
     }).state('edit', {
       url: '/edit/:articleId',
-      templateUrl: 'article-list/edit-article.html'
+      templateUrl: 'article-list/edit-article.html',
+      controller: 'articleListController'
     });
   }
 ]);
