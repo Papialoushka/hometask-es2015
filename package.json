@@ -2,17 +2,14 @@
   "name": "hometask-es2015-angular-part-one",
   "version": "1.0.0",
   "description": "ToDo List with angularjs",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
     "angular": "^1.6.9",
     "express": "^4.16.3",
-    "pug": "^2.0.3",
-    "webpack": "^4.1.0"
+    "pug": "^2.0.3"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
     "nodemon": "^1.17.2",
     "webpack-cli": "^2.0.13",
     "webpack-node-externals": "^1.6.0"
@@ -20,9 +17,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server",
-    "devstart": "nodemon ./server",
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development"
+    "devstart": "nodemon ./server"
   },
   "repository": {
     "type": "git",

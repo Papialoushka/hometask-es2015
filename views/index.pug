@@ -3,13 +3,9 @@ extends layout
 block body
     a(href="#contentMain" class="skip-link") Skip to main content
     div(class="view-container")
-        div(ng-view class="view-frame")
+        section(ui-view="home" class="view-frame")
 
     script(src="app.module.js")
     script(src="app.config.js")
-    script(src="task-list/task-list.module.js")
-    script(src="task-list/task-list.service.js")
-    script(src="task-list/task-list.component.js")
-    script(src="task-list/edit-task.component.js")
-    script(src="initial-tasks/initial-tasks.module.js")
-    script(src="initial-tasks/initial-tasks.service.js")
+    script(src="article-list/article-list.module.js")
+    script(src="article-list/article-list.component.js")

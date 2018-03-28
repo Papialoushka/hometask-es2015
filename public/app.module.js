@@ -1,5 +1,5 @@
-angular.module('manageTasksApp', [
+angular.module('manageArticleApp', [
   'ngResource',
-  'ngRoute',
-  'taskList'
+  'ui.router',
+  'articleList'
 ]);

@@ -1,0 +1,15 @@
+<header><h1>Edit your article</h1></header>
+<main>
+  <div ng-include=" 'article-list/list.html' "></div>
+  <span class="error-message" ng-hide="articleEdit.articleName.$touched && articleEdit.articleName.$valid">The article name is required. It should be at least 7 symbols long</span>
+  <form name="articleEdit" ng-submit="saveArticle($index)" novalidate>
+    <label for="articleName">Please edit your task
+      <input type="text" id="articleName" name="articleName" ng-model="newArticleName" ng-minlength="7" required
+             autofocus>
+    </label>
+    <label for="saveArticle">
+      <input type="submit" id="saveArticle" value="Save"
+             ng-disabled="articleCreate.articleName.$error.required || articleCreate.articleName.$error.minlength">
+    </label>
+  </form>
+</main>
