@@ -1,6 +1,6 @@
 <ul class="articles-wrapper">
   <li ng-repeat="article in articles | filter: query | orderBy: propertyName: reverse">
-    <a class="name" ui-sref="edit({articleId: article.id})" ng-click="toggleEditMode()">Edit</a>
+    <a class="name" ui-sref="edit({articleId: article.id})" ng-click="toggleEditMode($index)">Edit</a>
     {{ article.name }}
     <span class="article-date">created: {{ article.date | date: 'medium'}}</span>
     <label for="removeArticle">

@@ -10,7 +10,12 @@ angular.module('manageArticleApp').config(['$stateProvider', '$urlRouterProvider
     }).state('edit', {
       url: '/edit/:articleId',
       templateUrl: 'article-list/edit-article.html',
-      controller: 'articleListController'
+      controller: 'articleListController',
+      resolve: {
+        articleId: ['$stateParams', function ($stateParams) {
+          return $stateParams.articleId;
+        }]
+      }
     });
   }
 ]);

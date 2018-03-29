@@ -7,6 +7,11 @@
       <input type="text" id="articleName" name="articleName" ng-model="newArticleName" ng-minlength="7" required
              autofocus>
     </label>
+    <label for="articleContent">Please write your article
+      <input class="article-content" type="text" id="articleContent" name="articleContent" ng-model="newArticleContent"
+             ng-minlength="17"
+             required>
+    </label>
     <label for="saveArticle">
       <input type="submit" id="saveArticle" value="Save"
              ng-disabled="articleCreate.articleName.$error.required || articleCreate.articleName.$error.minlength">

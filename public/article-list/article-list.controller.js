@@ -1,5 +1,5 @@
-angular.module('articleList').controller('articleListController', function ($scope, $state) {
-  $scope.articles = [];
+angular.module('articleList').controller('articleListController', function ($scope, $state, $rootScope) {
+  $scope.articles = $rootScope.articles || [];
   $scope.articleName = '';
   $scope.articleContent = '';
   $scope.reverse = true;
@@ -7,7 +7,6 @@ angular.module('articleList').controller('articleListController', function ($sco
   $scope.getCount = () => $scope.articles.length;
 
   $scope.addArticle = () => {
-    console.log($scope.articles);
     let articleName = $scope.articleName;
     let articleContent = $scope.articleContent;
 
@@ -22,33 +21,35 @@ angular.module('articleList').controller('articleListController', function ($sco
 
       $scope.articles.push($scope.article);
     }
-    console.log($scope.articles);
   };
 
   $scope.removeArticle = (index) => $scope.articles.splice(index, 1);
 
-  $scope.toggleEditMode = function () {
-    const id = $state.params.articleId;
-    const item = $scope.articles.find((value) => value.id === id);
-    $scope.articles.newArticleName = item.name;
-    $scope.articles.newArticleDate = item.date;
+  $scope.toggleEditMode = function (index) {
+    const item = $scope.articles[index];
+
+    $scope.newArticleName = item.name;
+    $scope.newArticleContent = item.content;
+    $scope.newArticleDate = item.date;
+    $rootScope.articles = this.articles;
   };
 
-  $scope.saveArticle = function () {
-    const id = $state.params.articleId;
+  $scope.saveArticle = function (index) {
+    const id = +$state.params.articleId;
 
-    const index = $scope.articles.findIndex(function (value) {
+    const elem = $rootScope.articles.findIndex(function (value) {
       return value.id === id;
     });
 
-    const item = $scope.articles.find(function (value) {
+    const item = $rootScope.articles.find(function (value) {
       return value.id === id;
     });
 
-    item.name = this.newArticleName;
-    item.date = this.newArticleDate;
+    item.name = $scope.newArticleName;
+    item.content = $scope.newArticleContent;
+    item.date = $scope.newArticleDate;
 
-    $scope.articles[index] = item;
+    $scope.articles[elem] = item;
   };
 
   $scope.sortBy = (propertyName) => {
