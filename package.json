@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www"
+    "devstart": "nodemon ./bin/www",
+    "test": "mocha",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha.cmd test/blogs.spec.js",
+    "snapshot": "jest",
+    "stryker": "./node_modules/.bin/stryker run"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -18,10 +22,25 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pug": "^2.0.0-rc.4",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-test-renderer": "^16.3.1",
     "serve-favicon": "~2.4.5",
     "winston": "^3.0.0-rc1"
   },
   "devDependencies": {
-    "nodemon": "^1.14.11"
+    "babel-cli": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "jest": "^22.4.3",
+    "mocha": "^5.0.5",
+    "nodemon": "^1.14.11",
+    "stryker": "^0.21.0",
+    "stryker-api": "^0.15.0",
+    "stryker-karma-runner": "^0.13.0",
+    "stryker-mocha-runner": "^0.11.0",
+    "stryker-typescript": "^0.10.0"
   }
 }

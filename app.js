@@ -18,10 +18,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.all('*', (req, res, next) => {
-  console.log(json);
+  //console.log(json);
   next();
 }, (req, res, next) => {
-  logger.info(`date: ${new Date().toLocaleTimeString()}, url: ${req.url}, method: ${req.method}`);
+  //logger.info(`date: ${new Date().toLocaleTimeString()}, url: ${req.url}, method: ${req.method}`);
   next();
 });
 

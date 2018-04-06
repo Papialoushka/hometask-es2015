@@ -2,7 +2,9 @@ const blogModel = require('../models/blog');
 const mongoid = require('mongoid-js');
 
 // Display Homepage.
-exports.index = (req, res) => res.render('index', {title: 'Homepage', message: 'Site Home Page'});
+exports.index = (req, res) => {
+  res.render('index', {title: 'Homepage', message: 'Site Home Page'});
+};
 
 exports.blogs_list = (req, res) => {
   blogModel.find({}, function (err, blogs) {
@@ -13,6 +15,7 @@ exports.blogs_list = (req, res) => {
 // Display detail page for a specific Blog.
 exports.blogs_detail = (req, res) => {
   const blogId = req.params.id;
+  console.log(typeof blogId);
 
   blogModel.findById(blogId, function (err, blog) {
     if (err) {
